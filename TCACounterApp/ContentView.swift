@@ -74,11 +74,11 @@ struct ContentView: View {
                     }
                 }
 //                NavigationLink("edit count", destination: EditCountentView())
-                NavigationLink("Edit Count", destination: {
-                    EditCountentView(store: store.scope(
-                        state: \.counterDetail, action: CounterDetailAction.counterView
-                    ))
-                })
+//                NavigationLink("Edit Count", destination: {
+//                    EditCountentView(store: store.scope(
+//                        state: \.counterDetail, action: CounterDetailAction.counterView
+//                    ))
+//                })
             }
 
         }

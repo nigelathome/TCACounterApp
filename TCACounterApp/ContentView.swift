@@ -73,7 +73,7 @@ struct ContentView: View {
                         viewStore.send(.reset)
                     }
                 }
-//                NavigationLink("edit count", destination: EditCountentView())
+                NavigationLink("edit count", destination: EditCountentView())
 //                NavigationLink("Edit Count", destination: {
 //                    EditCountentView(store: store.scope(
 //                        state: \.counterDetail, action: CounterDetailAction.counterView

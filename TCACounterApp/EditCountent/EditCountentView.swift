@@ -10,18 +10,21 @@ import ComposableArchitecture
 
 
 struct EditCountentView: View {
-    @State var count = ""
+    let store: Store<CounterDetailState, CounterDetailAction>
+//    @State var count = ""
     var body: some View {
-        TextField("", text: $count, onEditingChanged: { changed in
-            print("onEditing: \(changed)")
-        }) {
-            print("userName: \(self.$count)")
-//            self.endEditing(true)
-        }
-        .padding(10)
-        .frame(height: 50)
-        .textFieldStyle(RoundedBorderTextFieldStyle())
-        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+        Text("111")
+//        WithViewStore(store) {ViewStore in
+//            TextField("", text: $count, onEditingChanged: { changed in
+//                print("onEditing: \(changed)")
+//            }) {
+//                print("userName: \(self.$count)")
+//            }
+//            .padding(10)
+//            .frame(height: 50)
+//            .textFieldStyle(RoundedBorderTextFieldStyle())
+//            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+//        }
     }
 
 }
@@ -29,6 +32,7 @@ struct EditCountentView: View {
 //struct EditCountentView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        EditCountentView(
-//            store: Store<Counter.Type, CounterAction>
+//            store:Store(initialState: Counter(), reducer: counterReducer, environment: counterEnvironmet())
+//        )
 //    }
 //}

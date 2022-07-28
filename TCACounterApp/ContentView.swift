@@ -29,7 +29,7 @@ enum CounterAction {
 struct counterEnvironmet {}
 
 
-let counterReducer = Reducer<Counter, CounterAction, counterEnvironmet>{
+let counterReducer = Reducer<Counter, CounterAction, counterEnvironmet> {
     state, action, _ in
     switch action {
     case .increment:
@@ -46,6 +46,7 @@ let counterReducer = Reducer<Counter, CounterAction, counterEnvironmet>{
         return .none
     }
 }.debug()
+
 struct ContentView: View {
     let store: Store<Counter, CounterAction>
     var body: some View {
@@ -73,8 +74,11 @@ struct ContentView: View {
                     }
                 }
 //                NavigationLink("edit count", destination: EditCountentView())
-                NavigationLink("edit count", destination: EditCountentView()
-                )
+                NavigationLink("Edit Count", destination: {
+                    EditCountentView(store: store.scope(
+                        state: \.counterDetail, action: CounterDetailAction.counterView
+                    ))
+                })
             }
 
         }

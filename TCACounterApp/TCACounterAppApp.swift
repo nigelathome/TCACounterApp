@@ -12,9 +12,11 @@ import ComposableArchitecture
 struct TCACounterAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(
-                store:Store(initialState: Counter(), reducer: counterReducer, environment: counterEnvironmet())
-                )
+            NavigationView {
+                ContentView(
+                    store:Store(initialState: Counter(), reducer: counterReducer, environment: counterEnvironmet())
+                    )
+            }
         }
     }
 }

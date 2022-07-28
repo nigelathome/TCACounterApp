@@ -50,27 +50,33 @@ struct ContentView: View {
     let store: Store<Counter, CounterAction>
     var body: some View {
         WithViewStore(store) { viewStore in
-            HStack{
-                Button("+"){
-                    viewStore.send(.increment)
-                }
-                TextField(
-                    String(viewStore.count),
-                    text: viewStore.binding(
-                    get : \.countString,
-                    send: CounterAction.setString
-                    )
-                    )
-                    .frame(width: 40)
-                    .foregroundColor(colorOfCount(count: viewStore.count))
+            VStack{
+                HStack{
+                    Button("+"){
+                        viewStore.send(.increment)
+                    }
+                    TextField(
+                        String(viewStore.count),
+                        text: viewStore.binding(
+                        get : \.countString,
+                        send: CounterAction.setString
+                        )
+                        )
+                        .frame(width: 40)
+                        .foregroundColor(colorOfCount(count: viewStore.count))
 
-                Button("-"){
-                    viewStore.send(.decrement)
+                    Button("-"){
+                        viewStore.send(.decrement)
+                    }
+                    Button("复位"){
+                        viewStore.send(.reset)
+                    }
                 }
-                Button("复位"){
-                    viewStore.send(.reset)
-                }
+//                NavigationLink("edit count", destination: EditCountentView())
+                NavigationLink("edit count", destination: EditCountentView()
+                )
             }
+
         }
     }
 
